@@ -38,6 +38,7 @@
       border: 0;
       border-radius: 12px;
       font-size: 18px;
+      cursor: pointer;
     }
 
     #result {
@@ -56,6 +57,16 @@
     audio {
       width: 100%;
       max-width: 450px;
+      margin-bottom: 30px;
+    }
+
+    #letter {
+      max-width: 600px;
+      margin: 30px auto;
+      font-size: 20px;
+      line-height: 2;
+      text-align: right;
+      white-space: pre-line;
     }
   </style>
 </head>
@@ -80,6 +91,7 @@
 
   </div>
 
+
   <div id="result">
 
     <h2>❤️</h2>
@@ -97,16 +109,31 @@
       متصفحك لا يدعم تشغيل الصوت.
     </audio>
 
+    <div id="letter"></div>
+
   </div>
 
+
   <script>
+
+    const text = `يمكن ما أقول لك هذا الكلام كثير، لكن أنتِ من الأشخاص الغاليين على قلبي بشكل ما أقدر أوصفه بالكلام. وجودك بحياتي شيء أقدّره كثير، وأحب طيبتك وروحك وكل التفاصيل الجميلة فيك.
+
+أتمنى مهما مرت الأيام وتغيّرت الظروف، تظلين عارفة إن لك مكانة خاصة عندي، وإنك شخص أتمنى له الخير والسعادة من قلبي. 🤍
+
+باختصار… أنا ممتن جدًا إن الحياة عرّفتني عليك، وأتمنى تظلين دايم بخير ومبسوطة، لأنك تستحقين كل شيء جميل.`;
+
     function enter() {
 
-      if (document.getElementById("password").value === "princess") {
+      const password =
+        document.getElementById("password").value;
+
+      if (password === "princess") {
 
         document.getElementById("login").style.display = "none";
 
         document.getElementById("result").style.display = "block";
+
+        typeText();
 
       } else {
 
@@ -114,6 +141,32 @@
 
       }
     }
+
+
+    function typeText() {
+
+      const letter = document.getElementById("letter");
+
+      let i = 0;
+
+      function write() {
+
+        if (i < text.length) {
+
+          letter.textContent += text.charAt(i);
+
+          i++;
+
+          setTimeout(write, 45);
+
+        }
+
+      }
+
+      write();
+
+    }
+
   </script>
 
 </body>
