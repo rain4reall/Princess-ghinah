@@ -4,129 +4,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Princess Ghina ❤️</title>
 
   <style>
     body {
       margin: 0;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1a001f, #6b1d58, #160014);
+      background: #26001f;
       color: white;
-    }
-
-    .box {
-      width: 90%;
-      max-width: 500px;
-      padding: 30px 20px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
     }
 
     h1 {
-      font-size: 34px;
       margin-bottom: 30px;
     }
 
     input {
-      width: 100%;
-      padding: 16px;
-      border: none;
-      border-radius: 15px;
+      width: 90%;
+      max-width: 350px;
+      padding: 15px;
+      border: 0;
+      border-radius: 12px;
       font-size: 18px;
       text-align: center;
-      margin-bottom: 15px;
     }
 
     button {
-      padding: 14px 35px;
-      border: none;
-      border-radius: 15px;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    #message {
       margin-top: 15px;
-      color: #ffb6d9;
+      padding: 14px 30px;
+      border: 0;
+      border-radius: 12px;
+      font-size: 18px;
     }
 
-    #content {
+    #result {
       display: none;
+      margin-top: 30px;
     }
 
-    .photo {
+    img {
       width: 100%;
       max-width: 450px;
-      border-radius: 22px;
-      margin-top: 25px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="box">
+  <h1>إلى الأميرة غنى ❤️</h1>
 
-    <div id="login">
+  <div id="login">
 
-      <h1>إلى الأميرة غنى ❤️</h1>
+    <input
+      id="password"
+      type="password"
+      placeholder="كلمة السر"
+    >
 
-      <input
-        type="password"
-        id="password"
-        placeholder="اكتبي كلمة السر"
-      >
+    <br>
 
-      <button onclick="checkPassword()">
-        دخول ❤️
-      </button>
-
-      <div id="message"></div>
-
-    </div>
-
-
-    <div id="content">
-
-      <h1>❤️</h1>
-
-      <img
-        src="PHOTO-2026-09-19-20-44-07.jpg"
-        alt="Ghina"
-        class="photo"
-      >
-
-    </div>
+    <button onclick="enter()">
+      دخول ❤️
+    </button>
 
   </div>
 
+  <div id="result">
+
+    <h2>❤️</h2>
+
+    <img src="./PHOTO-2026-09-19-20-44-07.jpg">
+
+  </div>
 
   <script>
+    function enter() {
 
-    function checkPassword() {
-
-      const password = document.getElementById("password").value;
-
-      if (password === "princess") {
+      if (document.getElementById("password").value === "princess") {
 
         document.getElementById("login").style.display = "none";
 
-        document.getElementById("content").style.display = "block";
+        document.getElementById("result").style.display = "block";
 
       } else {
 
-        document.getElementById("message").innerHTML =
-          "كلمة السر غير صحيحة ❤️";
+        alert("كلمة السر غير صحيحة ❤️");
 
       }
 
     }
-
   </script>
 
 </body>
